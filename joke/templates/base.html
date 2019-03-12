@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+
+    <body>
+        <!-- 导航栏 -->
+        <div class="nav">
+            <img
+                src="https://mat1.gtimg.com/pingjs/ext2020/newom/build/static/images/logo.png"
+            />
+
+            <ul>
+            <!-- 使用for语句 -->
+                {% for item in nav %}
+                <li>
+                    <a href="...">{{ item }}</a>
+                </li>
+                {% endfor %}
+            <!-- 结束for -->
+            </ul>
+        </div>
+
+        <!-- 使用if -->
+        {% if person.sex == '男' %}
+            {% if person.age > 20 %}
+                <span>hi,man</span>
+            {% else %}
+                 <span>hi,boy</span>
+            {% endif %}
+        {% endif %}
+        <!-- 结束if -->
+        
+        <!-- 过滤器Filter -->
+        <!-- 1.直接用 -->
+        <h2>过滤器Filter</h2>
+        {{ filter_01 | upper }}<br/>
+        {{ filter_01 | add:"添加" }}<br/>
+        <!-- 将 filter_01 中的空格减去 -->
+        {{ filter_01 | cut:' ' }}<br/>
+
+
+        <!-- 正文 -->
+        <div class="content">
+            <h1>{{ title }}</h1>
+            <div class="date">{{ date }}</div>
+            <div class="text">
+                {{ text }}
+            </div>
+        </div>
+
+        <hr />
+        <!-- 边栏 -->
+        <div class="sidebar">边栏: ...</div>
+
+        <hr />
+        <!-- 评论区 -->
+        <div class="comment">评论区: ...</div>
+
+        <hr />
+        <!-- 推荐区 -->
+        <div class="rcmd">推荐区: ...</div>
+
+        <hr />
+        <!-- 底栏 -->
+        <div class="footer">底栏: ...</div>
+    </body>
+</html>
