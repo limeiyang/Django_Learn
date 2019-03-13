@@ -1,7 +1,7 @@
 <!-- 导航栏 -->
 <div class="nav">
-    <img src="https://mat1.gtimg.com/pingjs/ext2020/newom/build/static/images/logo.png"/>
-    <!-- <img src="/stt/img/logo.png"/> -->
+   <!--  <img src="https://mat1.gtimg.com/pingjs/ext2020/newom/build/static/images/logo.png"/> -->
+    <img src="/stt/img/logo.png"/>
 
     <ul>
         {% for item in nav %}
@@ -10,4 +10,35 @@
         </li>
         {% endfor %}
     </ul>
+</div>
+
+
+
+
+<!-- 使用if -->
+{% if person.sex == '男' %}
+    {% if person.age > 20 %}
+        <span>hi,man</span>
+    {% else %}
+         <span>hi,boy</span>
+    {% endif %}
+{% endif %}
+<!-- 结束if -->
+
+<!-- 过滤器Filter -->
+<!-- 1.直接用 -->
+<h2>过滤器Filter</h2>
+{{ filter_01 | upper }}<br/>
+{{ filter_01 | add:"添加" }}<br/>
+<!-- 将 filter_01 中的空格减去 -->
+{{ filter_01 | cut:' ' }}<br/>
+
+
+<!-- 正文 -->
+<div class="content">
+    <h1>{{ title }}</h1>
+    <div class="date">{{ date }}</div>
+    <div class="text">
+        {{ text }}
+    </div>
 </div>
