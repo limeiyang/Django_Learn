@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	path('joke/index',views.index),
 	path('home/',views.home),
+    path('homesql/',views.homesql),
 
 ]
 # 添加本地图片的配置
