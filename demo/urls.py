@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from joke import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('joke/index',views.index),
 	path('home/',views.home),
+
 ]
+# 添加本地图片的配置
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
