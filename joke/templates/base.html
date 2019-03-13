@@ -5,22 +5,8 @@
 
     <body>
         <!-- 导航栏 -->
-        <div class="nav">
-            <!-- # 网络图片 -->
-           <!--  <img src="https://mat1.gtimg.com/pingjs/ext2020/newom/build/static/images/logo.png"/> -->
-            
-            <!-- 本地图片 -->
-            <img src="/stt/img/logo.png"/>
-            <ul>
-            <!-- 使用for语句 -->
-                {% for item in nav %}
-                <li>
-                    <a href="...">{{ item }}</a>
-                </li>
-                {% endfor %}
-            <!-- 结束for -->
-            </ul>
-        </div>
+        <!-- 使用include和子模板 -->
+        {% include "nav.html" %}
 
         <!-- 使用if -->
         {% if person.sex == '男' %}
