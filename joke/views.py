@@ -38,5 +38,5 @@ def home(request):
         'person': person,
         'filter_01':filter_01,
     }
-    return render(request, 'base.html', context)
+    return render(request, 'article.html', context)
 
