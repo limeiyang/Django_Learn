@@ -1,7 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from joke.names import random_name
+from joke.models import Article, Person
+import random
+
 # Create your views here.
+
+# 随机产生用户
+def random_users(num):
+    for i in range(num):
+        name, sex = random_name()
+        Person.objects.create(
+                name = name,
+                sex = sex,
+                age = random.randrange(18, 80)
+            )
+    pass
 
 # 导入数据库数据
 from joke.models import Article, Person
