@@ -72,3 +72,23 @@ def homesql(request):
     }
     return render(request, 'homesql.html',context)
 
+
+# 定义一个form接口
+def form_test(request):
+    return render(request, 'form_test.html')
+
+# 定义一个form_show接口，接受数据
+def form_show(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    description = request.POST['description']
+    sex = request.POST['sex']
+    city = request.POST['city']
+    data = {
+        'username': username,
+        'password': password,
+        'city': city,
+        'sex': sex,
+        'description': description,
+    }
+    return render(request, 'form_show.html', data)
