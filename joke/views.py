@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from joke.names import random_name
@@ -92,7 +92,9 @@ def form_test(request):
             age=age,
             description=description,
         )
-        return render(request, 'form_show.html', {'person': person})
+        # return render(request, 'form_show.html', {'person': person})
+        # 重定向
+        return redirect('/user/info/?uid=%s' % person.id)
     else:
         return render(request, 'form_test.html')
 
@@ -109,3 +111,9 @@ def form_test(request):
 #         'description': description,
 #     }
 #     return render(request, 'form_show.html', data)
+
+# 定义一个重定向接口展示信息
+def user_info(request):
+    uid = request.GET['uid']
+    person = Person.objects.get(id = uid)
+    return render(request, 'form_show.html', {'person': person})

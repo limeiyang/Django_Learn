@@ -6,6 +6,7 @@ class Person(models.Model):
 			('male', '男性'),
 			('female', '女性')
 		)
+	# username = models.CharField(max_length=16, unique=True)
 	username = models.CharField(max_length = 16)
 	password = models.CharField(max_length=32)
 	sex = models.CharField(max_length = 8, choices = SEX)
