@@ -26,7 +26,7 @@ urlpatterns = [
 	path('home/',views.home),
     path('homesql/',views.homesql),
     path('form_test/', views.form_test),
-    path('form_show/', views.form_show),
+    path('form_show/', views.form_test),
 
 ]
 # 添加本地图片的配置

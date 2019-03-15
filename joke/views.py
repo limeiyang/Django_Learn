@@ -75,20 +75,37 @@ def homesql(request):
 
 # 定义一个form接口
 def form_test(request):
-    return render(request, 'form_test.html')
+    # 是的注册后网页地址不跳转直接显示信息
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        description = request.POST['description']
+        sex = request.POST['sex']
+        city = request.POST['city']
+        age = int(request.POST['age'])
+
+        person = Person.objects.create(
+            username=username,
+            password=password,
+            city=city,
+            sex=sex,
+            age=age,
+            description=description,
+        )
+        return render(request, 'form_show.html', {'person': person})
+    else:
+        return render(request, 'form_test.html')
 
 # 定义一个form_show接口，接受数据
-def form_show(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    description = request.POST['description']
-    sex = request.POST['sex']
-    city = request.POST['city']
-    data = {
-        'username': username,
-        'password': password,
-        'city': city,
-        'sex': sex,
-        'description': description,
-    }
-    return render(request, 'form_show.html', data)
+# def form_show(request):
+    
+    
+
+#     data = {
+#         'username': username,
+#         'password': password,
+#         'city': city,
+#         'sex': sex,
+#         'description': description,
+#     }
+#     return render(request, 'form_show.html', data)
