@@ -13,6 +13,9 @@ class Person(models.Model):
 	age = models.IntegerField()
 	city = models.CharField(max_length=16)
 	description = models.TextField()
+	# 默认字符
+	def __str__(self):
+		return 'Person: %s' % self.username
 
 # Create your models here.
 class Article(models.Model):
@@ -21,6 +24,8 @@ class Article(models.Model):
 	date = models.DateField(auto_now_add = True)
 	text = models.TextField()
 	auth = models.ForeignKey(Person, on_delete=models.CASCADE)
-
+	# 默认字符
+	def __str__(self):
+		return 'Article: %s' % self.title
 
 	
