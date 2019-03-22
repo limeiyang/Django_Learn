@@ -1,0 +1,92 @@
+﻿<html>
+	<head>
+		<title>emplist</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="top_content">
+				<div id="header">
+					<div id="rightheader">
+						<p>
+							2009/11/20
+							<br />
+						</p>
+					</div>
+					<div id="topheader">
+						<h1 id="title">
+							<a href="#">Main</a>
+						</h1>
+					</div>
+					<div id="navigation">
+					</div>
+				</div>
+
+				<div id="content">
+					<p id="whereami">
+					</p>
+					<h1>
+						Welcome!
+					</h1>
+					<table class="table">
+						<tr class="table_header">
+							<td>
+								ID
+							</td>
+							<td>昵称</td>
+							<td>
+								详情
+							</td>
+							<td>
+								Gendar
+							</td>
+							<td>
+								Age
+							</td>
+							<td>
+
+							</td>
+						</tr>
+						{%for user in users%}
+						<tr class="row1">
+							<td>
+								{{user.id}}
+							</td>
+							<td>{{user.nikename}}</td>
+							<td>
+								<a href="/userDetail/?uid={{user.id}}">
+								详情
+								</a>
+							</td>
+							<td>
+								{% if user.sex == 'male' %}
+								男性
+								{% else %}
+								女性
+								{% endif %}
+							</td>
+							<td>
+								{{user.age}}
+							</td>
+							<td>
+								<a href="/user_delete/?uid={{user.id}}">删除</a>
+								<a href='/user_update/?uid={{user.id}}'>修改</a>
+							</td>
+						</tr>
+						{% endfor %}
+					</table>
+					<p>
+						<input type="button" class="button" value="退出系统"
+							onclick="location='/login/'" />
+					</p>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="footer_bg">
+					ABC@126.com
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

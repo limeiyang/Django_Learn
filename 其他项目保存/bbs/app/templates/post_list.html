@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block container %}
+    <div class="list-group">
+        {% for post in posts %}
+        <div class="list-group-item">
+        	<strong><a href="/post/read/?post_id={{post.id}}">{{post.title}}</a></strong><br>
+        	<span><a href="/user/info/?uid={{post.author.id}}">{{post.author.nickname}}</a></span>
+            <span class="text-info">{{post.created | date:"Y-m-d H:i:s"}}</span>
+            
+        </div>
+        {% empty %}
+        还没有人创建帖子，自己动手创建一个吧！
+        {% endfor %}
+    </div>
+{% endblock %}
